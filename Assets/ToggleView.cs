@@ -4,21 +4,32 @@ using System.Collections;
 public class ToggleView : MonoBehaviour
 {
 
-    GameObject outside;
-    GameObject material;
+    GameObject bin;  
+    GameObject boxWhiteBlue;  
+    GameObject toy; 
 
     bool isHidden;
 
     bool showText = true;
-    Rect textArea = new Rect(0, 0, Screen.width, Screen.height); 
+    Rect textArea = new Rect(0, 0, Screen.width, Screen.height);
+
+    bool displayMessage;
+    string message;
+    string messageForAction; 
 
     // Use this for initialization
     void Start()
     {
-        outside = GameObject.Find("Group46");
-        material = GameObject.Find("Mesh47");
+        bin = GameObject.Find("Group57");
+        boxWhiteBlue = GameObject.Find("Group26"); 
+        toy = GameObject.Find("Group56"); 
 
-        isHidden = false; 
+        isHidden = false;
+ 
+        displayMessage = false;
+        message = "You are looking at the bin and it is great.";
+
+        messageForAction = "Have you ever seen such a beatiful bin here? Please, look at it carefully."; 
     }
 
     // Update is called once per frame
@@ -26,27 +37,58 @@ public class ToggleView : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T)) 
         {
-
             if (!isHidden)
             {
-                outside.SetActive(false);
+                toy.SetActive(false);
                 isHidden = true; 
             }
             else
             {
-                outside.SetActive(true);
+                toy.SetActive(true);
                 isHidden = false; 
             }
-
         }
-        
-    }
 
+        if (bin.GetComponent<Renderer>().isVisible) { 
+            displayMessage = true;
+        }
+        else { 
+            displayMessage = false;
+        }
+
+        if (TimerForObject.timer > 10)
+        {
+            if (!bin.GetComponent<Renderer>().isVisible)
+            {
+
+                boxWhiteBlue.SetActive(false);
+
+            }
+        }
+ 
+        if (TimerForObject.timer > 15)
+        {
+            if (!bin.GetComponent<Renderer>().isVisible)
+            {
+
+                toy.SetActive(false);
+
+            }
+        }
+    }
+ 
     void OnGUI()
     {
-        GUI.Label(new Rect(800, 200, 100, 100), "Follow the ball, dear user.");
+        if (displayMessage)
+        {
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), message);
+        }
+        else
+        {
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), messageForAction); 
+        }
     }
 
 
