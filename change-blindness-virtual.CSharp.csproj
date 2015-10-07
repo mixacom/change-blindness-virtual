@@ -70,9 +70,23 @@
   <ItemGroup>
     <Compile Include="Assets\BlaBla.cs" />
     <Compile Include="Assets\Chair_has.cs" />
+    <Compile Include="Assets\ChangeColor.cs" />
     <Compile Include="Assets\FreeflightCamera.cs" />
+    <Compile Include="Assets\Parabox Primitives\Classes\InteractivePrimitive.cs" />
+    <Compile Include="Assets\Parabox Primitives\Classes\InteractivePrimitivesMath.cs" />
+    <Compile Include="Assets\Parabox Primitives\Enum\InteractivePrimitiveEnum.cs" />
+    <Compile Include="Assets\Parabox Primitives\MonoBehaviours\InteractiveCone.cs" />
+    <Compile Include="Assets\Parabox Primitives\MonoBehaviours\InteractiveCube.cs" />
+    <Compile Include="Assets\Parabox Primitives\MonoBehaviours\InteractiveCylinder.cs" />
+    <Compile Include="Assets\Parabox Primitives\MonoBehaviours\InteractivePlane.cs" />
+    <Compile Include="Assets\Parabox Primitives\MonoBehaviours\InteractivePrism.cs" />
+    <Compile Include="Assets\RotateAroundSimple.cs" />
     <Compile Include="Assets\TimerForObject.cs" />
     <Compile Include="Assets\ToggleView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Free Props\Info.txt" />
+    <None Include="Assets\Parabox Primitives\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

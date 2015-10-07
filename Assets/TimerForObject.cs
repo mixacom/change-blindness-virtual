@@ -30,7 +30,7 @@ public class TimerForObject : MonoBehaviour {
 
     void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 250, 100), seconds.ToString());
+        GUI.Label(new Rect(10, 10, 250, 100), timer.ToString());
     }
   
 }
