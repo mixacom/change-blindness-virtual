@@ -4,7 +4,7 @@ using System.Collections;
 public class ToggleView : MonoBehaviour
 {
 
-    GameObject bin;  
+    GameObject flyingThing;  
     GameObject boxWhiteBlue;  
     GameObject toy;
 
@@ -29,7 +29,7 @@ public class ToggleView : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        bin = GameObject.Find("Group57");
+        flyingThing = GameObject.Find("Group2");
 
         lamp = GameObject.Find("Group20");
         wardrobe = GameObject.Find("Group18");
@@ -42,7 +42,7 @@ public class ToggleView : MonoBehaviour
         displayMessage = false;
         message = "You are looking at the bin and it is great.";
 
-        messageForAction = "Have you ever seen such a beatiful bin here? Please, look at it carefully.";
+        messageForAction = "Have you ever seen such a beatiful shining robot here? Please, look at it carefully.";
         startMessage = "It's going to start. Get ready to notice a yellow bin, have fun and enjoy it."; 
 
         finalMessage = "You did it! Thank you. By the way. Have you noticed that something has changed in the room since the beginning? Yeah, really :) "; 
@@ -68,38 +68,35 @@ public class ToggleView : MonoBehaviour
             }
         }
 
-        if (bin.GetComponent<Renderer>().isVisible) { 
+        if (flyingThing.GetComponent<Renderer>().isVisible) { 
             displayMessage = true;
         }
         else { 
             displayMessage = false;
         }
 
-        if (TimerForObject.timer > 20 && (!lamp.GetComponent<Renderer>().isVisible)) lamp.SetActive(false);
-        if (TimerForObject.timer > 20 && (!wardrobe.GetComponent<Renderer>().isVisible)) wardrobe.SetActive(false);
-        if (TimerForObject.timer > 30 && (!TV.GetComponent<Renderer>().isVisible)) TV.SetActive(false);
-        if (TimerForObject.timer > 30 && (!chair.GetComponent<Renderer>().isVisible)) chair.SetActive(false);
-        if (TimerForObject.timer > 50 && (!pinboard.GetComponent<Renderer>().isVisible)) pinboard.SetActive(false);
+        if (TimerForObject.timer > 82 && (!lamp.GetComponent<Renderer>().isVisible)) lamp.SetActive(false);
+        if (TimerForObject.timer > 65 && (!wardrobe.GetComponent<Renderer>().isVisible)) wardrobe.SetActive(false);
+        if (TimerForObject.timer > 135 && (!TV.GetComponent<Renderer>().isVisible)) TV.SetActive(false);
+        if (TimerForObject.timer > 128 && (!chair.GetComponent<Renderer>().isVisible)) chair.SetActive(false);
+        if (TimerForObject.timer > 89 && (!pinboard.GetComponent<Renderer>().isVisible)) pinboard.SetActive(false);
 
     }
  
     void OnGUI()
     {
-        if (displayMessage)
-        {
-
-        }
+        if (displayMessage) { } 
         else
         {
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), messageForAction); 
+//             GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), messageForAction); 
         }
 
-        if (TimerForObject.timer > 1 && TimerForObject.timer < 15)
+        if (TimerForObject.timer > 0.1 && TimerForObject.timer < 1)
         {
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2 - 300, 200f, 200f), startMessage); 
+//             GUI.Label(new Rect(Screen.width / 2, Screen.height / 2 - 300, 200f, 200f), startMessage); 
         }
 
-        if (TimerForObject.timer > 68 || (!ChangeColor.isColorChanging))  
+        if (TimerForObject.timer > 141 || (!ChangeColor.isColorChanging))  
         {
             GUI.Label(new Rect(Screen.width / 2, Screen.height / 2 - 300, 200f, 200f), finalMessage); 
         }

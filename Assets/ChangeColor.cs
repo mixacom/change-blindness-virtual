@@ -11,19 +11,23 @@ public class ChangeColor : MonoBehaviour
     public Renderer rend;
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        rend =  GameObject.Find("MeshG2").GetComponent<Renderer>();
     }
     void Update()
     {
-        if (TimerForObject.timer > 65)
+        if (TimerForObject.timer > 140) 
         {
             rend.material.color = colorYellow;
             isColorChanging = false; 
         }
-        else
+        else if (TimerForObject.timeStarted)
         {
+            
             float lerp = Mathf.PingPong(Time.time, duration) / duration;
             rend.material.color = Color.Lerp(colorStart, colorEnd, lerp);
+            
+
+            System.Console.WriteLine(rend.materials); 
         }
     }
 }

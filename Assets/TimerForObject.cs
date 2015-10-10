@@ -7,18 +7,25 @@ public class TimerForObject : MonoBehaviour {
 
     public static bool timeStarted;
 
-    public float seconds;
+    public float seconds; 
     
     
     void Start()
     {
 
-        timeStarted = true; 
-
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            timeStarted = true;   
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            timeStarted = false; 
+        } 
+
         if (timeStarted == true)
         {
             timer += Time.deltaTime; 
